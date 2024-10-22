@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Question Paper</title>
+    <style>
+        body {
+            font-family: Lucida Sans Unicode, sans-serif;
+            background-color: #b5e193;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .start-button {
+            width: 100%;
+            margin-top: 50px;
+            padding: 10px 0;
+            background: #6fd649;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 10px 10px;
+
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: hsl(0, 0%, 100%);
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+
+        .options {
+            margin-top: 10px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 4px;
+            background-color: rgb(236, 236, 162);
+        }
+
+        .button {
+            width: 200px;
+            margin-top: 50px;
+            padding: 20px 0;
+            background: #6fd649;
+            color: #fff;
+            border: 1;
+            outline: none;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 5px;
+            font-weight: 500px;
+        }
+
+        #Image {
+                text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="main-container">
+        <h1>Cartoon Quizzard</h1>
+        <button class="start-button" onclick="startQuiz()">Take the Quiz!</button>
+    </div>
+
+
+    <script>
+
+        const quizData = [
+            {
+                question: "What Popeye the sailor man famously eats to increase his strength?",
+                options: ["A. Laddoo", "B. Spinach", "C. Chocolate", "D. Carrot"],
+                answer: 1
+            },
+            {
+                question: "What are the names of Donald Duck's three nephews?",
+                options: ["A. Huey, Dewey, and Louie", "B. Dholu, Bolu, Golu", "C. Ed, Edd and Eddy", "D. Kevin, Gwen, Ben"],
+                answer: 0
+            },
+            {
+                question: "The phrase often said by Timon and Pumba, ‘Hakuna matata’, made popular by a song in The Lion King means ‘no worries’ in which language?",
+                options: ["French", "B. Hindi", "C. Spanish", "D. Swahili"],
+                answer: 3
+            },
+            {
+                question: "Blossom, Bubbles and Buttercup are the name of characters in which series?",
+                options: ["A. Teen Titans", "B. The Powerpuff Girls", "C. My Little Pony", "D. Monster's High"],
+                answer: 1
+            },
+            {
+                question: "In The Simpsons, who is Ned Flanders’ first wife?",
+                options: ["A. Maude Flanders", "B. Meg Simpson", "C. Lisa", "D. Kim Kardashian"],
+                answer: 0
+            },
+            {
+                question: "In the cartoon series Family Guy, what color pants does Peter Griffin generally wear?",
+                options: ["A. Green", "B. Black", "C. Blue", "D. Grey"],
+                answer: 0
+            },
+            {
+                question: "What is the name of the first feature film Disney released in 1937?",
+                options: ["A. Beauty and the Beast", "B. Snow White and the Seven Dwarfs", "C. Cinderella", "D.  Lady and the Tramp"],
+                answer: 1
+            },
+            {
+                question: "Who is the main antagonist in ‘The Lion King’?",
+                options: ["A. Scar", "B. Simba", "C. Mufasa", "D. Jake"],
+                answer: 0
+            },
+            {
+                question: "What is the name of Mickey Mouse’s dog?",
+                options: ["A. Goofy", "B. Daisy", "C. Pluto", "D. Mars"],
+                answer: 2
+            },
+            {
+                question: "What color is Scooby-Doo’s collar?",
+                options: ["A. Red", "B. Black", "C. Green", "D. Blue"],
+                answer: 3
+            },
+
+        ];
+
+        let userName = "";
+        let score = 0;
+
+        function startQuiz() {
+            userName = prompt("Please enter your name:");
+            if (userName === null || userName.trim() === "") {
+                alert("Name is required to start the quiz.");
+                return;
+            }
+            document.getElementById('main-container').innerHTML = `
+        <h2>Welcome, ${userName}!</h2>
+        <div class="quiz" id="quiz-container">
+            ${generateQuiz()}
+            <button class="button" onclick="submitQuiz()">Submit Quiz</button>
+        </div>
+    `;
+            document.getElementById('quiz-container').style.display = 'block';
+        }
+
+        function generateQuiz() {
+            let quizHTML = '';
+            quizData.forEach((item, index) => {
+                quizHTML += `
+            <div class="question">
+                <h3>Q${index + 1}. ${item.question}</h3>
+                <div class="options">
+                    ${item.options.map((option, i) => `
+                        <label>
+                            <input type="radio" name="question${index}" value="${i}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+            });
+            return quizHTML;
+        }
+
+        function submitQuiz() {
+            score = 0;
+            for (let i = 0; i < quizData.length; i++) {
+                const selected = document.querySelector(`input[name="question${i}"]:checked`);
+                if (selected && parseInt(selected.value) === quizData[i].answer) {
+                    score++;
+                }
+            }
+
+            const percentage = ((score / quizData.length) * 100).toFixed(2);
+            let resultMessage = `${userName}, you got ${score} out of ${quizData.length} questions correct.\nYour Percentage: ${percentage}%`;
+
+            const continueQuiz = confirm(`${resultMessage}\n\nWould you like to retake Quiz?`);
+            if (continueQuiz) {
+                window.location.reload();
+            } else {
+                document.getElementById('main-container').innerHTML = ` 
+            
+            
+            <div id="Image"><img src="https://i.pinimg.com/736x/86/b5/3d/86b53d90fbd279ea28d04099ff7518f0.jpg" height=180></div>
+            <h2>Well Done, ${userName}!</h2>
+            <div class="result">
+                You scored <strong>${score}</strong> out of <strong>${quizData.length}</strong>.<br>
+                Your Percentage: <strong>${percentage}%</strong>
+            </div>
+            <button class="button" onclick="window.location.reload()">Retake Quiz</button>
+            <button class="button" onclick="window.close()">Exit</button>
+        `;
+            }
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
+
+        }
+
+        .arithmetic-operations {
+            margin-bottom: 40px;
+        }
+
+        .arithmetic-operations input[type="number"] {
+            width: 90%;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000000;
+            background-color: beige;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+            border: none;
+            background-color: hsl(0, 0%, 30%);
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: hsl(0, 0%, 40%);
+        }
+
+        button:active {
+            background-color: hsl(0, 0%, 50%);
+        }
+
+
+
+        .previous-button {
+            left: 10px;
+        }
+
+        .operator {
+            background-color: hsl(109, 81%, 33%);
+        }
+
+        .operator:hover {
+            background-color: hsl(109, 81%, 45%);
+        }
+
+        .operator:active {
+            background-color: hsl(109, 81%, 65%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Basic Calculator</h1>
+        <div class="arithmetic-operations">
+            <input id="num1" type="number" placeholder="Number 1">
+
+            <div id="keys">
+                <button id="add-button" class="operator">+</button>
+                <button id="subtract-button" class="operator">-</button>
+                <button id="multiply-button" class="operator">×</button>
+                <button id="divide-button" class="operator">÷</button>
+                <button id="modulus-button" class="operator">%</button>
+                <button id="power-button" class="operator">^</button>
+                <button id="sqrt-button" class="operator">√</button>
+            </div>
+
+
+            <br><br>
+            <input id="num2" type="number" placeholder="Number 2">
+            <p class="result" id="result"></p>
+        </div>
+
+    </div>
+
+
+    <script>
+        function add(x, y) {
+            return x + y;
+        }
+
+        function subtract(x, y) {
+            return x - y;
+        }
+
+        function multiply(x, y) {
+            return x * y;
+        }
+
+        function divide(x, y) {
+            if (y !== 0) {
+                return x / y;
+            } else {
+                return "Error: Division by zero is not allowed";
+            }
+        }
+
+        function modulus(x, y) {
+            return x % y;
+        }
+
+        function power(x, y) {
+            return Math.pow(x, y);
+        }
+
+        function sqrt(x) {
+            if (x >= 0) {
+                return Math.sqrt(x);
+            } else {
+                return "Error: Cannot compute square root of a negative number";
+            }
+        }
+
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const addButton = document.getElementById('add-button');
+        const subtractButton = document.getElementById('subtract-button');
+        const multiplyButton = document.getElementById('multiply-button');
+        const divideButton = document.getElementById('divide-button');
+        const modulusButton = document.getElementById('modulus-button');
+        const powerButton = document.getElementById('power-button');
+        const sqrtButton = document.getElementById('sqrt-button');
+        const resultParagraph = document.getElementById('result');
+
+        function displayResult(message) {
+            resultParagraph.textContent = message;
+        }
+
+        addButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            if (isNaN(num1) || isNaN(num2)) {
+                displayResult("Error: Please enter valid numbers.");
+                return;
+            }
+            const result = add(num1, num2);
+            displayResult(`Result: ${result}`);
+        });
+
+        subtractButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            if (isNaN(num1) || isNaN(num2)) {
+                displayResult("Error: Please enter valid numbers.");
+                return;
+            }
+            const result = subtract(num1, num2);
+            displayResult(`Result: ${result}`);
+        });
+
+        multiplyButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            if (isNaN(num1) || isNaN(num2)) {
+                displayResult("Error: Please enter valid numbers.");
+                return;
+            }
+            const result = multiply(num1, num2);
+            displayResult(`Result: ${result}`);
+        });
+
+        divideButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            if (isNaN(num1) || isNaN(num2)) {
+                displayResult("Error: Please enter valid numbers.");
+                return;
+            }
+            const result = divide(num1, num2);
+            displayResult(`Result: ${result}`);
+        });
+
+        modulusButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            if (isNaN(num1) || isNaN(num2)) {
+                displayResult("Error: Please enter valid numbers.");
+                return;
+            }
+            const result = modulus(num1, num2);
+            displayResult(`Result: ${result}`);
+        });
+
+        powerButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            if (isNaN(num1) || isNaN(num2)) {
+                displayResult("Error: Please enter valid numbers.");
+                return;
+            }
+            const result = power(num1, num2);
+            displayResult(`Result: ${result}`);
+        });
+
+        sqrtButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            if (isNaN(num1)) {
+                displayResult("Error: Please enter a valid number.");
+                return;
+            }
+            const result = sqrt(num1);
+            displayResult(`Result: ${result}`);
+        });
+
+
+    </script>
+</body>
+
+</html>

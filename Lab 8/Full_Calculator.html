@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Arithmetic</title>
+
+    <style>
+        
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+
+        #calculator {
+            position: absolute;
+            top: 20%;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            background-color: hsl(0, 0%, 15%);
+            
+            border-radius: 15px;
+            max-width: 270px;
+            overflow: hidden;
+        }
+
+        #display {
+            width: 85%;
+            padding: 20px;
+            font-size: 2rem;
+            text-align: left;
+            border: none;
+            border-radius: 15px;
+            background-color: hsl(0, 0%, 20%);
+            color: white;
+        }
+
+        #keys {
+            display: grid;
+            grid-template-columns: repear(4, 1fr);
+            gap: 10px;
+            padding: 25px;
+
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            border: none;
+            background-color: hsl(0, 0%, 30%);
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: hsl(0, 0%, 40%);
+        }
+
+        button:active {
+            background-color: hsl(0, 0%, 50%);
+        }
+
+        .operator {
+            background-color: hsl(109, 81%, 33%);
+        }
+
+        .operator:hover {
+            background-color: hsl(109, 81%, 45%);
+        }
+
+        .operator:active {
+            background-color: hsl(109, 81%, 65%);
+        }
+
+        a{
+            text-align: center;
+            top: 30px;
+            padding-left: 130px;
+            font-family: Arial, sans-serif;
+            font-size:14px;
+            border-radius: 15px;
+            border: hsl(109, 81%, 65%);
+            color:beige;
+            background-color:hsl(0, 0%, 15%);
+        }
+    </style>
+</head>
+
+<body>
+    <b1>
+        <h1>Basic Arithmetic Operations</h1>
+        <h2><i><center>(Simple Calculator)</center></i></h2>
+    </b1>
+
+    <div id="calculator">
+        <input id="display">
+        <br><br>
+        <div id=" keys">
+            <button onclick="appendToDisplay('+')" class="operator">+</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('-')" class="operator">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')" class="operator">*</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('/')" class="operator">/</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearDisplay()" class="operator">C</button>
+            <a><i>CARDIO</a></i>
+        </div>
+    </div>
+
+    <script>
+        const display=document.getElementById("display");
+        
+
+        function appendToDisplay(input){
+            display.value+=input;
+        }
+
+        function clearDisplay(){
+            display.value="";
+        }
+
+        function calculate(){
+            try{
+                display.value=eval(display.value);
+            }
+            catch(error){
+                display.value="Error!";
+            }
+            
+        }
+
+
+    </script>
+
+</body>
+
+</html>

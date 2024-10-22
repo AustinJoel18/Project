@@ -1,0 +1,171 @@
+<html></html>
+
+<head>
+    <title> Student Form </title>
+    <p>
+        <center><u> STUDENT REGISTRATION FORM </u></center><br>
+        Please enter your details under:
+    </p>
+    <style>
+        table {
+            background: linear-gradient(to bottom, yellowgreen 0%, sienna 100%);
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=number] {
+            width: 50%;
+            padding: 6px 12px;
+            margin: 6px 0;
+        }
+
+        input[type=submit],
+        input[type=reset] {
+            width: 15%;
+            padding: 6sspx 12px;
+            margin: 6px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <table cellpadding="12">
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" placeholder="Joel"> (Max 50 Characters Allowed)</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" placeholder="Dympep"> (Max 50 Characters Allowed)</td>
+        </tr>
+        <tr>
+            <td>Email ID</td>
+            <td><input type="email" placeholder="b23cs035@nitm.ac.in"></td>
+        </tr>
+
+        <tr>
+            <td>Mobile Number</td>
+            <td><input type="text" maxlength="10" placeholder="XXXXXXXXXX"> (10 Digits Allowed)</td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td><input type="radio" name="Gender" value="Male"> Male
+                <input type="radio" name="Gender" value="Female" />
+                Female
+            </td>
+        </tr>
+
+        <tr>
+            <td>Date of Birth(DOB)</td>
+            <td>
+                <select name="Day" id="Day">
+                    <option>Day</option> 
+                    <option>1</option> <option>2</option> <option>3</option> <option>4</option> 
+                    <option>5</option> <option>6</option> <option>7</option> <option>8</option> 
+                    <option>9</option> <option>10</option> <option>11</option> <option>12</option>
+                    <option>13</option> <option>14</option> <option>15</option> <option>16</option>
+                    <option>17</option> <option>18</option> <option>19</option> <option>20</option> 
+                    <option>21</option> <option>22</option> <option>23</option> <option>24</option>
+                    <option>25</option> <option>26</option> <option>27</option> <option>28</option>
+                    <option>29</option> <option>30</option> <option>31</option>
+                </select>
+
+                <select name="Month" id="Month">
+                    <option>Month</option> 
+                    <option>January</option> <option>February</option> <option>March</option> 
+                    <option>April</option> <option>May</option> <option>June</option> 
+                    <option>July</option> <option>August</option> <option>September</option> 
+                    <option>October</option> <option>November</option> <option> December</option>
+                </select>
+
+                <select name="Year" id="Year">
+                    <option> Year</option>
+                    <option>2024</option> <option>2023</option> <option>2022</option> <option>2021</option>
+                    <option>2020</option> <option>2019</option> <option>2018</option> <option>2017</option>
+                    <option>2016</option> <option>2015</option> <option>2014</option> <option>2013</option>
+                    <option>2012</option> <option>2011</option> <option>2010</option> <option>2009</option>
+                    <option>2008</option> <option>2007</option> <option>2006</option> <option>2005</option>
+                    <option>2004</option> <option>2003</option> <option>2003</option> <option>2002</option>
+                    <option>2001</option> <option>2000</option> <option>1999</option> <option>1998</option>
+                    <option>1997</option> <option>1996</option> <option>1995</option> <option>1994</option>
+                    <option>1993</option> <option>1992</option> <option>1991</option> <option>1990</option>
+                </select>
+                <br><br>
+            </td>
+        </tr>
+        <tr>
+            <td>Address<br><br><br></td>
+            <td><textarea name="Address" rows="5" cols="50"></textarea></td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td><input type="text" placeholder="Shillong"> (Max 50 Characters Allowed)</td>
+        </tr>
+        <tr>
+            <td>Pin Code</td>
+            <td><input type="Number" placeholder="793008"> (Max 6 Numbers Allowed)</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td><input type="text" placeholder="Meghalaya"> (Max 50 Characters Allowed)</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td><input type="text" placeholder="India"></td>
+        </tr>
+
+        <tr>
+            <td>Hobbies <br><br><br></td>
+            <td>
+                <input type="checkbox">Singing
+                <input type="checkbox">Dancing
+                <input type="checkbox">Painting/Drawing
+                <input type="checkbox">Atheletics
+                <input type="checkbox">Music
+                <input type="checkbox">Dancing <br>
+                Others:<input type="text"> (Max 50 Characters Allowed)
+            </td>
+        </tr>
+
+        <tr>
+            <td>Qualification <br /><br /><br /></td>
+            <td>
+                <br />
+                <input type="checkbox">Below Class 10 <br>
+                <input type="checkbox">Secondary School (Class 10)<br />
+                <input type="checkbox">Higher Secondary School (Class 12)<br />
+                <input type="checkbox">Graduate School (Bachelors Degree)<br />
+                <input type="checkbox">Post-Graduate School (Masters Degree)<br>
+                <input type="checkbox">PhD<br>
+            </td>
+        </tr>
+        <tr>
+            <td>Course Applied/Applying for: <br>
+            <td>
+                <input type="radio">B.Sc (Bachelor of Science)<br>
+                <input type="radio">B.A (Bachelor of Arts)<br>
+                <input type="radio">B.Com (Bachelor of Commerce)<br>
+                <input type="radio">BCA (Bachelor of Computer Applications)<br>
+                <input type="radio">M.Sc (Master of Science)<br>
+                <input type="radio">M.A (Master of Arts)<br>
+                <input type="radio">M.Com (Master of Commerce)<br>
+                <input type="radio">MCA (Master of Computer Applications)<br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </td>
+        </tr>
+
+
+    </table>
+</body>
+
+</html>

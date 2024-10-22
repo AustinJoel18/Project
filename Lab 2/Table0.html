@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Table</title>
+</head>
+
+<style>
+    h2 {
+        color: #bf3b3b;
+        text-align: center;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid;
+
+        #cadetblue {
+            background-color: cadetblue;
+        }
+
+        #orange {
+            background-color: orange;
+        }
+
+        #yellowgreen {
+            background-color: yellowgreen;
+        }
+
+        #bisque {
+            background-color: bisque;
+        }
+
+        #goldenrod {
+            background-color: goldenrod;
+        }
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        background-image: url('Collage.jpg');
+        height: 300px;
+        width: 500px;
+    }
+
+    th,
+    td {
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <pre><h2></u><u>SAMPLE TABLE</u></h2></pre>
+
+    <table>
+        <tr>
+            <th rowspan=3>Day</th>
+            <th colspan=3 align='center'> Seminar </th>
+        </tr>
+
+        <tr>
+            <th colspan=2> Schedule </th>
+            <th rowspan=2> Topic </th>
+        </tr>
+
+        <tr>
+            <th id="bisque"> Begin </th>
+            <th id="bisque"> End </th>
+        </tr>
+
+        <div id="Monday">
+            <tr>
+                <td rowspan=2> Monday </td>
+                <td id="orange" rowspan=2> 8:00 am </td>
+                <td id="yellowgreen" rowspan=2> 5:00 pm </td>
+                <td> Introduction to XML</td>
+            </tr>
+
+            <tr>
+                <td>Validity: DTD and Relax NG</td>
+            </tr>
+        </div>
+
+
+        <div id="Tuesday">
+            <tr>
+                <td rowspan=3> Tuesday </td>
+                <td id="goldenrod"> 8:00 am </td>
+                <td id="goldenrod"> 11:00 am </td>
+                <td> XPath</td>
+            </tr>
+
+            <tr>
+                <td id="orange"> 11:00 am </td>
+                <td id="yellowgreen"> 2:00 pm </td>
+                <td rowspan=2> XSL Transformatics</td>
+            </tr>
+
+            <tr>
+                <td id="yellowgreen"> 2:00 pm </td>
+                <td id="cadetblue"> 5:00 pm </td>
+            </tr>
+        </div>
+
+
+        <div="Wednesday">
+            <tr>
+                <td> Wednesday </td>
+                <td id="goldenrod"> 8:00 am </td>
+                <td id="yellowgreen"> 12:00 pm </td>
+                <td> XSL Formatting Objects </td>
+            </tr>
+            </div>
+
+            <div id="Thursday">
+                <tr>
+                    <td rowspan=2> Thursday </td>
+                    <td id="orange" rowspan=2> 8:00 am </td>
+                    <td id="cadetblue" rowspan=2> 5:00 pm </td>
+                    <td> Introduction to XML</td>
+                </tr>
+
+                <tr>
+                    <td>Validity: DTD and Relax NG</td>
+                </tr>
+            </div>
+
+            <div id="Friday">
+                <tr>
+                    <td rowspan=3> Friday </td>
+                    <td id="goldenrod"> 8:00 am </td>
+                    <td id="goldenrod"> 11:00 am </td>
+                    <td> XPath</td>
+                </tr>
+
+                <tr>
+                    <td id="orange"> 11:00 am </td>
+                    <td id="yellowgreen"> 2:00 pm </td>
+                    <td rowspan=2> XSL Transformatics</td>
+                </tr>
+
+                <tr>
+                    <td id="yellowgreen"> 2:00 pm </td>
+                    <td id="cadetblue"> 5:00 pm </td>
+                </tr>
+            </div>
+
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Slide-Show</title>
+
+    <style>
+        #Welcome {
+            background-color: white;
+            color: rgb(184, 32, 32);
+        }
+
+        body {
+                background-color: rgb(178, 34, 34);
+        }
+
+        .slider {
+            padding-top: 50px;
+            padding-bottom: 50px;
+
+                background-color: rgba(255, 255, 255, 0.938);
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider img {
+            text-align: center;
+            display: none;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 20px;
+
+        }
+
+        img.displaySlide {
+            display: block;
+            animation-name: fade;
+            animation-duration: 2s;
+        }
+
+        button {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            line-height: 6px;
+            text-align: center;
+            font-weight: 300;
+            padding: 50px 30px;
+            background-color: white(0, 0%, 0%, 0.541);
+            color: black;
+            border: 0 solid #ff8c00;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 2%;
+        }
+
+        .next {
+            right: 2%;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0.5
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+        
+    </style>
+</head>
+
+
+<body>
+    <div id="Welcome">
+        <h1>
+             <center>Find Woldo in the slides below!</center>
+        </h1>
+    </div>
+    <div class="slider">
+        <div class="slides">
+            <center>
+                
+                <img class="slides" src="https://www.nbcstore.com/cdn/shop/files/wheres-waldo-mobile-min.jpg?v=1688578838" alt="slide 1" height=400><img class="slides" src="https://i.ytimg.com/vi/uzAbVIfSYBY/maxresdefault.jpg" alt="slide 1" height=400>
+                <img class="slides" src="https://blog.kuula.co/assets/waldo/header.png" alt="slide 2" height=400>
+                <img class="slides" src="https://i0.wp.com/questdaily.com.au/wp-content/uploads/2024/02/48-Wheres-Wally-WALKER-BOOKS.png?resize=800%2C600&ssl=1" alt="slide 3" height=400>
+                <img class="slides" src="https://preview.redd.it/8c6kcrlbmib61.jpg?width=1080&crop=smart&auto=webp&s=e7fc96ec0729ab2c3fdbf8e249cede60c6827330" alt="slide 4" height=400>
+                <img class="slides" src="https://preview.redd.it/wheres-waldo-picture-waldo-is-hidden-in-a-crowd-of-people-v0-4gkgd0de0fzb1.jpg?width=640&crop=smart&auto=webp&s=879aebd26264e340d827f2204f602932587b1798" alt="slide 5" height=400>
+                <img class="slides" src="https://c4.wallpaperflare.com/wallpaper/892/616/946/game-where-s-waldo-colorful-colors-wallpaper-preview.jpg" alt="slide 6" height=400>
+                <img class="slides" src="https://preview.redd.it/2hlnmfibqk471.jpg?width=640&crop=smart&auto=webp&s=2dd49e50b0f991dfe3a5540b86e645f9390a4c01" alt="slide 7" height=400>
+            </center>
+        </div>
+
+    </div>
+    <button class="prev" onclick="PrevSlide()">&#10094;</button>
+    <button class="next" onclick="NextSlide()">&#10095;</button>
+
+    <script>
+        const slides = document.querySelectorAll(".slides img");
+        let slideIndex = 0;
+        let intervalId = null;
+
+        document.addEventListener("DOMContentLoaded", InitializeSlider);
+
+        function InitializeSlider() {
+            slides[slideIndex].classList.add("displaySlide");
+            intervalId = setInterval(NextSlide, 5000)
+        }
+
+        function ShowSlide(index) {
+
+            if (index >= slides.length) {
+                slideIndex = 0;
+            }
+            else if (index < 0) {
+                slideIndex = slides.length - 1;
+            }
+            slides.forEach(slide => {
+                slide.classList.remove("displaySlide")
+            });
+            slides[slideIndex].classList.add("displaySlide");
+        }
+
+        function PrevSlide() {
+            clearInterval(intervalId);
+            slideIndex--;
+            ShowSlide(slideIndex);
+        }
+
+        function NextSlide() {
+            slideIndex++;
+            ShowSlide(slideIndex);
+        }
+    </script>
+
+
+
+    
+</div>
+
+</body>
+
+</html>
